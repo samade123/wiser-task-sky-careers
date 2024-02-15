@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react'
 import { filter } from "@/app/interface";
+import './Pills.scss'
+// import {classNames}
 
 interface Prop {
   filters: filter[];
@@ -16,10 +18,12 @@ const Pills = ({ filters, selectFilter }: Prop) => {
         selectFilter(index);
     }
 
+    
+
   return (
-    <div role="tablist">
+    <div role="tablist" className='career-filter-wrapper'>
       {filters.map((filter, index) => (
-        <div role="tab" className="career-filter" key={filter.name} onClick={(e) =>handleSelectedPill(index)}>
+        <div role="tab" tabIndex={0} className={`career-filter ${selectedFilterPill == index ? 'career-filter--selected' : ''}`} key={filter.name} onClick={(e) =>handleSelectedPill(index)}>
           <div className="career-filter__name">{filter.name}</div>
         </div>
       ))}

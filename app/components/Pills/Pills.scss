@@ -1,0 +1,46 @@
+.career-filter-wrapper {
+
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: min(100%, 1074px);
+
+    color: var(--pills-color, #535353);
+
+    .career-filter {
+        padding: 4px 12px;
+        border-radius: 8px;
+        border: solid 1px var(--pills-color);
+        box-sizing: border-box;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+
+        cursor: pointer;
+
+        &:hover {
+            background: rgb(0, 15, 245, 0.05);
+        }
+
+        &--selected {
+            background: var(--pills-selected-bg-color);
+            border-color: var(--pills-selected-bg-color);
+            color: white;
+
+            &:hover {
+                background: var(--pills-selected-bg-color);
+                cursor: default;
+            }
+
+            &:focus-within{
+                // outline-color: pink;
+                // outline-width: 10px;
+                // outline-style: double;
+
+                filter: brightness(1.5);
+            }
+        }
+    }
+}
