@@ -1,3 +1,5 @@
+@use './../Components.scss';
+
 section {
     display: grid;
     place-items: center;
@@ -34,6 +36,7 @@ section {
 
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 6px;
         background: #fff;
         box-shadow: 0px 5px 16px 0px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
@@ -41,6 +44,14 @@ section {
 
 
         width: min(91vw, 1312px);
+        box-sizing: border-box;
+
+        &__bottom-border {
+            grid-column: span 2;
+            background: linear-gradient(90deg, #FF7800 0%, #F80032 20%, #FF00A0 40%, #8C28FF 60%, #0023FF 80%, #1798FF 100%);
+            border-radius: 0 0 8px 8px;
+
+        }
 
         &__left {
             // padding: 40px min(2vw, 40px);
@@ -50,7 +61,7 @@ section {
             display: flex;
             flex-direction: column;
             gap: 24px;
-            height: 424px;
+            height: var(--img-height);
 
             .sub-team-card__title {
                 // height: 2lh;
@@ -75,20 +86,12 @@ section {
             .sub-team-card__tag {
                 cursor: pointer;
                 font-size: 1.5em;
+                place-self: start;
 
                 button {
-                    padding: 10px 20px;
-                    background: #fff;
-                    border-radius: 8px;
-                    border: 2px solid var(--cta-border-col);
-                    cursor: inherit;
+                    @extend .buttons;
 
 
-                    &:hover {
-                        background: rgb(0, 15, 245, 0.03);
-                        text-decoration: underline;
-
-                    }
                 }
 
             }
@@ -99,6 +102,8 @@ section {
             place-items: stretch;
             border-radius: 0 8px 8px 0;
             isolation: isolate;
+
+            --img-height: 424px;
 
             >div,
             >img,
@@ -113,9 +118,9 @@ section {
             >iframe {
                 max-width: 100%;
                 max-height: 100%;
-                height: max(50vh, 424px);
+                height: max(50vh, var(--img-height));
                 object-fit: cover;
-                border-radius: 0 8px 8px 0;
+                border-radius: 0 8px 0 0;
                 transition: opacity 0.5s ease-in-out;
             }
 
@@ -124,19 +129,21 @@ section {
                 grid-column: 1;
                 grid-row: 1;
                 z-index: 5;
-                max-width: 100%;
-                max-height: 100%;
-                height: max(50vh, 424px);
-                object-fit: cover;
-                border-radius: 0 8px 8px 0;
-                transition: opacity 0.5s ease-in-out;
-                // animation: fade-in 0.4s;
 
+                &--transparent {
+                    opacity: 0;
+                }
             }
 
             >iframe,
             >video {
                 z-index: 30;
+
+                border: none;
+                margin: 0;
+                padding: 0;
+                height: 100%;
+
             }
 
             .sub-team-card__video-icon {
