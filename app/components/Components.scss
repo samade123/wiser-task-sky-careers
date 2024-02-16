@@ -1,0 +1,16 @@
+.buttons {
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 8px;
+    border: 2px solid var(--cta-border-col);
+    color: var(--cta-color);
+    cursor: inherit;
+
+    &:hover,
+    &:focus, &:active {
+
+        background: rgb(0, 15, 245, 0.03);
+        text-decoration: underline;
+
+    }
+}
