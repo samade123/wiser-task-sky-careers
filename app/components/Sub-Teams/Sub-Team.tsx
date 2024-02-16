@@ -16,28 +16,32 @@ interface props {
 const SubTeam = ({ title = "", subTitle = "", filters }: props) => {
   let [selectedFilter, selectFilter] = useState(0);
   let selectFilterIndex = (index: number) => {
+    // console.log("adsdsads", index)
     selectFilter(index);
     setCardOpacity(false);
     setPlayVideo(false);
     // let img = document.getElementById("sub-team-card__img");
     // if (img !== null) {
     //   img.addEventListener("transitionend", (ev) => {
-    //     selectCard(subTeamCardArr[index]);
+    setTimeout(() => {
+      selectCard(subTeamCardArr[index]);
 
-    //     setTimeout(() => {
-    //       setCardOpacity(true);
-    //     }, 50);
+      setTimeout(() => {
+        setCardOpacity(true);
+      }, 50);
+    }, 400); //value is trasnition time
     //   });
     // }
   };
 
-  let functionIfValidImg =() =>{
+  let functionIfValidImg = () => {
+    console.log("asdsad");
     selectCard(subTeamCardArr[selectedFilter]);
 
     setTimeout(() => {
       setCardOpacity(true);
     }, 50);
-  }
+  };
 
   let [cardOpacity, setCardOpacity] = useState(true);
 
