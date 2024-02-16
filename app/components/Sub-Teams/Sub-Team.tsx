@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Pills from "../Pills/Pills";
 import Videoplay from "../Video-play/Videoplay";
+import ImgPlaceholder from "../img.tsx/Img-Placeholder";
 import { filter } from "@/app/interface";
 import { getJson } from "@/app/functions/getJson";
 import "./Sub-Team.scss";
@@ -19,10 +20,20 @@ const SubTeam = ({ title = "", subTitle = "", filters }: props) => {
     setCardOpacity;
     setCardOpacity(false);
     setPlayVideo(false);
-    let img = document.getElementById("sub-team-card__img");
-    if (img !== null) {
-      img.addEventListener("transitionend", (ev) => {
-        selectCard(subTeamCardArr[index]);
+    // let img = document.getElementById("sub-team-card__img");
+    // if (img !== null) {
+    //   img.addEventListener("transitionend", (ev) => {
+    //     selectCard(subTeamCardArr[index]);
+
+    //     setTimeout(() => {
+    //       setCardOpacity(true);
+    //     }, 50);
+    //   });
+    // }
+  };
+
+  let functionIfValidImg =() =>{
+    selectCard(subTeamCardArr[selectedFilter]);
 
         setTimeout(() => {
           setCardOpacity(true);
@@ -74,13 +85,19 @@ const SubTeam = ({ title = "", subTitle = "", filters }: props) => {
         </div>
 
         <div className="sub-team-card__right">
-          <img
+          {/* <img
             id="sub-team-card__img"
             src={selectedCard.video[0].placeholder.url}
             alt={selectedCard.video[0].placeholder.alt}
             className="sub-team-card__img"
             style={{ opacity: cardOpacity ? "1" : "0" }}
-          />
+          /> */}
+
+          <ImgPlaceholder
+            selectedCard={selectedCard}
+            cardOpacity={cardOpacity}
+            functionIfImgValid={functionIfValidImg}
+          ></ImgPlaceholder>
           <Videoplay
             selectedCard={selectedCard}
             onClickHandler={toggleVideoPlayState}
