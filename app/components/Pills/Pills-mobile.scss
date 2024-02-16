@@ -11,6 +11,7 @@
         &:has(.career-filter-button) {
             display: flex;
         }
+
         .career-filter[role="tab"] {
             display: none;
         }
@@ -99,7 +100,17 @@
                     grid-template-rows: minmax(1fr, 42px);
                     cursor: pointer;
 
-                    
+                    -webkit-tap-highlight-color: transparent;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+
+
+
+
                     .pop-up-list__filter {
                         // padding: 8px 0;
                         box-sizing: border-box;
@@ -107,14 +118,26 @@
                         display: grid;
                         place-items: center start;
                         // height: max(42px, fit-content);
+                        transition: filter 0.3s linear;
 
-                        &:hover, &:active, &:focus-within {
+                        &:hover,
+                        &:active,
+                        &:focus-within {
                             text-decoration: underline;
+
+                            // filter: brightness(0.95);
+                            background: rgba(85, 85, 85, 0.1);
+
                         }
+
                         &--chosen {
                             color: var(--chosen-mobile-filter-col, var(--sky-blue));
                             font-weight: bold;
                         }
+
+
+
+
                     }
                 }
             }

@@ -226,6 +226,8 @@ const Pills = ({ filters, selectFilter, subTeamCards }: Prop) => {
                       }`
                     }
                     key={index}
+
+                    tabIndex={0}
                     onClick={(e) =>
                       handleMobileSelectFilter(false, true, index)
                     }
