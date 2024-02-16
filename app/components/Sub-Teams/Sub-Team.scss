@@ -100,6 +100,25 @@ section {
             border-radius: 0 8px 8px 0;
             isolation: isolate;
 
+            >div,
+            >img,
+            >video,
+            >iframe {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            >img,
+            >video,
+            >iframe {
+                max-width: 100%;
+                max-height: 100%;
+                height: max(50vh, 424px);
+                object-fit: cover;
+                border-radius: 0 8px 8px 0;
+                transition: opacity 0.5s ease-in-out;
+            }
+
             img.sub-team-card__img {
 
                 grid-column: 1;
@@ -113,6 +132,11 @@ section {
                 transition: opacity 0.5s ease-in-out;
                 // animation: fade-in 0.4s;
 
+            }
+
+            >iframe,
+            >video {
+                z-index: 30;
             }
 
             .sub-team-card__video-icon {
