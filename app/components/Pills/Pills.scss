@@ -11,6 +11,15 @@
 
     color: var(--pills-color, #535353);
 
+    .career-filter-button,
+    .mobile-pop-up {
+        display: none;
+    }
+
+    &:has(.career-filter-button) {
+        display: none;
+    }
+
     .career-filter {
         padding: 4px 12px;
         border-radius: 8px;
@@ -34,7 +43,7 @@
                 cursor: default;
             }
 
-            &:focus-within{
+            &:focus-within {
                 // outline-color: pink;
                 // outline-width: 10px;
                 // outline-style: double;

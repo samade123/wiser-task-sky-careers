@@ -1,4 +1,3 @@
-// 'use client'
 import React, { useState } from "react";
 import Pills from "../Pills/Pills";
 import Videoplay from "../Video-play/Videoplay";
@@ -6,6 +5,7 @@ import ImgPlaceholder from "../img.tsx/Img-Placeholder";
 import { filter } from "@/app/interface";
 import { getJson } from "@/app/functions/getJson";
 import "./Sub-Team.scss";
+import "./Sub-team-mobile.scss";
 
 interface props {
   title: string;
@@ -17,7 +17,6 @@ const SubTeam = ({ title = "", subTitle = "", filters }: props) => {
   let [selectedFilter, selectFilter] = useState(0);
   let selectFilterIndex = (index: number) => {
     selectFilter(index);
-    setCardOpacity;
     setCardOpacity(false);
     setPlayVideo(false);
     // let img = document.getElementById("sub-team-card__img");
@@ -35,12 +34,10 @@ const SubTeam = ({ title = "", subTitle = "", filters }: props) => {
   let functionIfValidImg =() =>{
     selectCard(subTeamCardArr[selectedFilter]);
 
-        setTimeout(() => {
-          setCardOpacity(true);
-        }, 50);
-      });
-    }
-  };
+    setTimeout(() => {
+      setCardOpacity(true);
+    }, 50);
+  }
 
   let [cardOpacity, setCardOpacity] = useState(true);
 
@@ -66,7 +63,11 @@ const SubTeam = ({ title = "", subTitle = "", filters }: props) => {
       <h1 className="sub-team__title">{subteamsTitle}</h1>
       <p className="sub-team__description ">{subTeamsDescription}</p>
 
-      <Pills filters={dataFilters} selectFilter={selectFilterIndex}></Pills>
+      <Pills
+        filters={dataFilters}
+        selectFilter={selectFilterIndex}
+        subTeamCards={subTeamCardArr}
+      ></Pills>
 
       <div className="sub-team-card">
         <div className="sub-team-card__left">
@@ -104,12 +105,16 @@ const SubTeam = ({ title = "", subTitle = "", filters }: props) => {
           ></Videoplay>
           {playVideo && selectedCard.video[0].video !== null ? (
             <iframe
-              src={selectedCard.video[0].video?.url.replace("watch?v=", "embed/")}
+              src={selectedCard.video[0].video?.url.replace(
+                "watch?v=",
+                "embed/"
+              )}
               title={selectedCard.video[0].video?.title}
             ></iframe>
           ) : null}
-
         </div>
+
+        <div className="sub-team-card__bottom-border"></div>
       </div>
     </section>
   );
