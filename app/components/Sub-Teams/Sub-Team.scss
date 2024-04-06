@@ -32,7 +32,32 @@ section {
         text-align: center;
     }
 
+
     .sub-team-card {
+        &.transition {
+
+            &-enter,
+            &-exit {
+                opacity: 0;
+            }
+
+            &-enter-active {
+                transition: opacity 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+                opacity: 1;
+            }
+
+
+            &-exit-active {
+                opacity: 0;
+                transition: opacity 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+
+            }
+
+            &-exit-done {
+                opacity: 0;
+                // opacity: 1;
+            }
+        }
 
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -63,6 +88,11 @@ section {
             gap: 24px;
             height: var(--img-height);
 
+            // .appear-sub-team-card__title {
+            //     // transform: scaleX(0);
+            //     opacity: 0;
+            // }
+
             .sub-team-card__title {
                 // height: 2lh;
                 // display: grid;
@@ -74,6 +104,8 @@ section {
                 background-image: var(--sky-gradient);
                 -webkit-background-clip: text;
                 background-clip: text;
+                transform-origin: left;
+                transition: opacity 0.3s ease;
             }
 
             .sub-team-card__body {
