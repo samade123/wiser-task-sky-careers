@@ -5,37 +5,10 @@ interface props {
   selectedCard: SubTeamCard;
   cardOpacity: boolean;
   functionIfImgValid: () => void;
-  // functionImgNotValid: () => void;
 
 }
 
 const ImgPlaceholder = ({ selectedCard, cardOpacity, functionIfImgValid}: props) => {
-  // useEffect(() => {
-  //   let img = document.getElementById("sub-team-card__img");
-
-  //   if (img !== null) {
-      
-  //     img.addEventListener("transitionend", (ev) => {
-  //       functionIfImgValid()
-
-  //       // selectCard(subTeamCardArr[index]);
-
-
-  //       // setTimeout(() => {
-  //       //   setCardOpacity(true);
-  //       // }, 50);
-  //     }, {once: true});
-  //   } else {
-  //     setTimeout(()=>{
-  //       console.log("runnning")
-
-  //       functionIfImgValid()
-
-  //     }, 1000)
-  //   }
-  //   //Runs on the first render
-  //   //And any time any dependency value changes
-  // }, [cardOpacity]);
   return (
     <img
       id="sub-team-card__img"
